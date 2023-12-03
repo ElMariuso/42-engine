@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   config.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 21:37:48 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/03 23:28:36 by mthiry           ###   ########.fr       */
+/*   Created: 2023/12/03 21:32:30 by mthiry            #+#    #+#             */
+/*   Updated: 2023/12/03 23:15:39 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.hpp"
+#pragma once
 
-int main()
-{
-    GLFWwindow  *window;
-    
-    if (!glfwInit())
-    {
-        std::cerr << "GLFW couldn't start" << std::endl;
-        return (1);
-    }
-
-    window = glfwCreateWindow(640, 480, "scop", NULL, NULL);
-
-    while (!glfwWindowShouldClose(window))
-    {
-        glfwPollEvents();
-    }
-    glfwTerminate();
-    return (0);
-}
+#include <iostream>
+#include <GLFW/glfw3.h>

@@ -3,6 +3,7 @@ NAME = scop
 CPP = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++20
 CPPFLAGS_2 = -O2
+GLFLAGS = -lglfw -lGL
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -13,7 +14,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) -o $@ $^
+	$(CPP) -o $@ $^ $(GLFLAGS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(@D)
