@@ -6,12 +6,13 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:32:30 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/04 17:01:48 by mthiry           ###   ########.fr       */
+/*   Updated: 2023/12/04 19:53:06 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+/* Standard */
 #include <iostream>
 
 /* OpenGL */
