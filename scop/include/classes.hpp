@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   classes.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 21:37:48 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/04 22:47:25 by mthiry           ###   ########.fr       */
+/*   Created: 2023/12/04 22:26:29 by mthiry            #+#    #+#             */
+/*   Updated: 2023/12/04 22:32:17 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.hpp"
-#include "classes.hpp"
+#pragma once
 
-int main()
-{
-    Render render;
-
-    render.run();
-    return (0);
-}
+/* Classes */
+#include "render/Window.hpp"
+#include "render/Render.hpp"

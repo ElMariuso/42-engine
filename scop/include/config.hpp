@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   config.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 21:37:48 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/04 22:47:25 by mthiry           ###   ########.fr       */
+/*   Created: 2023/12/03 21:32:30 by mthiry            #+#    #+#             */
+/*   Updated: 2023/12/04 22:40:50 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.hpp"
-#include "classes.hpp"
+#pragma once
 
-int main()
-{
-    Render render;
+/* Standard */
+#include <iostream>
+#include <string>
+#include <memory>
 
-    render.run();
-    return (0);
-}
+/* OpenGL */
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
