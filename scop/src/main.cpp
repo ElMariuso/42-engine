@@ -6,28 +6,43 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:37:48 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/03 23:28:36 by mthiry           ###   ########.fr       */
+/*   Updated: 2023/12/04 02:55:56 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "config.hpp"
 
+void errorCallback(int error, const char* description)
+{
+    std::cerr << "ERROR[" << error << "]: " << description << std::endl;
+}
+
 int main()
 {
-    GLFWwindow  *window;
+    glfwSetErrorCallback(errorCallback);
     
     if (!glfwInit())
     {
         std::cerr << "GLFW couldn't start" << std::endl;
-        return (1);
+        return (-1);
     }
 
-    window = glfwCreateWindow(640, 480, "scop", NULL, NULL);
+    GLFWwindow  *window = glfwCreateWindow(640, 480, "scop", NULL, NULL);
+    if (!window)
+    {
+        std::cerr << "Failed to create GLFW window" << std::endl;
+        glfwTerminate();
+        return (-1);   
+    }
+
+    glClearColor(0.25f, 0.5f, 0.75gf, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
+        glfwSwapBuffers(window);
     }
+    glfwDestroyWindow(window);
     glfwTerminate();
     return (0);
 }
