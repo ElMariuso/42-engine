@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:48:59 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/04 23:48:06 by mthiry           ###   ########.fr       */
+/*   Updated: 2023/12/04 23:50:28 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void ScopWindow::pollEvents()
 /* Private functions */
 void ScopWindow::initialization()
 {
-    this->window = glfwCreateWindow((this->width / 100) * 95, (this->height / 100) * 95, this->title.c_str(), NULL, NULL);
+    this->window = glfwCreateWindow((this->width / 100) * 90, (this->height / 100) * 90, this->title.c_str(), NULL, NULL);
     if (!this->window)
     {
         std::cerr << "ERROR: Failed to create GLFW window" << std::endl;
