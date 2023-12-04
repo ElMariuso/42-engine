@@ -1,13 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/04 21:14:36 by mthiry            #+#    #+#              #
+#    Updated: 2023/12/04 21:23:03 by mthiry           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CXX := g++
-CXXFLAGS := -Wall -Wextra -std=c++20 -Idependencies
+CXXFLAGS := -Wall -Wextra -std=c++20 -Iinclude -Idependencies
 LDFLAGS := -lglfw -ldl
 
 SRC_DIR := src
 OBJ_DIR := obj
 DEP_DIR := dependencies
 
-SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
-OBJ_FILES := $(SRC_FILES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+SRC_FILES := $(shell find $(SRC_DIR) -name '*.cpp')
+OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 GLAD_FILES := $(DEP_DIR)/glad/glad.c
 TARGET := scop
 
@@ -17,6 +29,7 @@ $(TARGET): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) $(GLAD_FILES) $^ -o $@ $(LDFLAGS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
