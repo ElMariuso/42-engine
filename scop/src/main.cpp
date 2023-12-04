@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:37:48 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/04 02:55:56 by mthiry           ###   ########.fr       */
+/*   Updated: 2023/12/04 17:02:02 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
         return (-1);   
     }
 
-    glClearColor(0.25f, 0.5f, 0.75gf, 1.0f);
+    glClearColor(0.25f, 0.5f, 0.75f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {

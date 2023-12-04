@@ -1,30 +1,32 @@
-NAME = scop
+CXX := g++
+CXXFLAGS := -Wall -Wextra -std=c++20 -Idependencies
+LDFLAGS := -lglfw -ldl
 
-CPP = g++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++20
-CPPFLAGS_2 = -O2
-GLFLAGS = -lglfw -lGL
+SRC_DIR := src
+OBJ_DIR := obj
+DEP_DIR := dependencies
 
-SRC_DIR = src
-OBJ_DIR = obj
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES := $(SRC_FILES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+GLAD_FILES := $(DEP_DIR)/glad/glad.c
+TARGET := scop
 
-SRCS = $(SRC_DIR)/main.cpp
-OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+all: $(TARGET)
 
-all: $(NAME)
+$(TARGET): $(OBJ_FILES)
+	$(CXX) $(CXXFLAGS) $(GLAD_FILES) $^ -o $@ $(LDFLAGS)
 
-$(NAME): $(OBJS)
-	$(CPP) -o $@ $^ $(GLFLAGS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(@D)
-	$(CPP) $(CPPFLAGS) $(CPPFLAGS_2) -c $< -o $@
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(TARGET)
 
 re: fclean all
 
