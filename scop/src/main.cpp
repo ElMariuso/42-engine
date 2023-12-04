@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:37:48 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/04 17:02:02 by mthiry           ###   ########.fr       */
+/*   Updated: 2023/12/04 19:23:13 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,22 @@ int main()
         return (-1);   
     }
 
+    glfwMakeContextCurrent(window);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        glfwTerminate();
+        return (-1);
+    }
+
     glClearColor(0.25f, 0.5f, 0.75f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
         glfwSwapBuffers(window);
     }
     glfwDestroyWindow(window);
