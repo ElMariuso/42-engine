@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.hpp                                         :+:      :+:    :+:   */
+/*   Vertex.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 21:32:30 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/11 19:47:52 by mthiry           ###   ########.fr       */
+/*   Created: 2023/12/11 19:48:37 by mthiry            #+#    #+#             */
+/*   Updated: 2023/12/11 19:59:11 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-/* Standard */
-#include <iostream>
-#include <string>
-#include <memory>
+#include "config.hpp"
 
-/* OpenGL */
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
+struct Vertex
+{
+    glm::vec3   position;
+    glm::vec3   color;
+    glm::vec2   texcoord;
+    glm::vec3   normal;
+};
