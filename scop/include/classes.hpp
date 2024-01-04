@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 22:26:29 by mthiry            #+#    #+#             */
-/*   Updated: 2023/12/11 22:21:26 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:23:18 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,3 +18,4 @@
 
 /* Models */
 #include "model/Model.hpp"
+#include "model/Vertex.hpp"
