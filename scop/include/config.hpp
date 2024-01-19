@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:32:30 by mthiry            #+#    #+#             */
-/*   Updated: 2024/01/04 14:22:40 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:35:23 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <memory>
 #include <utility>
 #include <fstream>
+#include <sstream>
 
 /* Containers */
 #include <vector>
