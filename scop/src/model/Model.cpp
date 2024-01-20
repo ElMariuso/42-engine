@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:25:48 by mthiry            #+#    #+#             */
-/*   Updated: 2024/01/04 14:44:34 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/01/20 17:36:40 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void Model::parseOBJ()
     if (!file)
         throw std::runtime_error("Unable to open file");
 
-    std::string     line;
+    std::vector<glm::vec3>  positions;
+    std::vector<glm::vec2>  texCoords;
+    std::vector<glm::vec3>  normals;
+    std::string             line;
     while (std::getline(file, line))
     {
         std::istringstream  lineStream(line);
@@ -48,16 +51,34 @@ void Model::parseOBJ()
 
         if (lineType == "v")
         {
-            glm::vec3   vertex;
+            glm::vec3   position;
+            lineStream >> position.x >> position.y >> position.z;
+            positions.push_back(position);
+        }
+        else if (lineType == "vt")
+        {
+            glm::vec2   texCoord;
+            lineStream >> texCoord.x >> texCoord.y;
+            texCoords.push_back(texCoord);
+        }
+        else if (lineType == "vn")
+        {
+            glm::vec3   normal;
+            lineStream >> normal.x >> normal.y >> normal.z;
+            normals.push_back(normal);
+        }
+        else if (lineType == "f")
+        {
+            std::vector<Vertex> faceVertices;
+            std::string vertexSpec;
 
-            std::cout  << "Line: "  << line << std::endl;
+            while (lineStream >> vertexSpec)
+            {
+                std::istringstream  vertexStream(vertexSpec);
+                Vertex              vertex;
 
-            lineStream >> vertex.x >> vertex.y >> vertex.z;
-
-            std::cout << vertex.x << std::endl;
-            std::cout << vertex.y << std::endl;
-            std::cout << vertex.z << std::endl;
-
+                std::cout << vertexSpec << std::endl;
+            }
             break ;
         }
     }

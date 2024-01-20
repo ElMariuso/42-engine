@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:13:15 by mthiry            #+#    #+#             */
-/*   Updated: 2024/01/04 14:23:48 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/01/20 02:25:21 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Model
 
     private:
         std::string                 path;
-        std::vector<Vertex>         vertex;
+        std::vector<Vertex>         vertices;
         std::vector<unsigned int>   indices;
 
         void                        parseOBJ();
