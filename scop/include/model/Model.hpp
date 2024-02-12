@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:13:15 by mthiry            #+#    #+#             */
-/*   Updated: 2024/01/22 00:31:24 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/02/12 19:54:44 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "config.hpp"
 #include "classes.hpp"
 
-class Mesh;
+struct Mesh;
 
 class Model
 {
