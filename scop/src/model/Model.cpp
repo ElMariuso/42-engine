@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:25:48 by mthiry            #+#    #+#             */
-/*   Updated: 2024/01/22 20:35:30 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/03/15 19:46:35 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,83 +24,25 @@ void Model::loadModel()
 
 void Model::parseOBJ(std::ifstream& file)
 {
-	Mesh					mesh;
-    std::vector<glm::vec3>	positions;
-    std::vector<glm::vec2>	texCoords;
-    std::vector<glm::vec3>	normals;
-    std::string				line;
-    
+    std::string line;
+
     while (std::getline(file, line))
     {
         std::istringstream  lineStream(line);
         std::string         lineType;
         lineStream >> lineType;
 
-		if (lineType == "o")
-		{
-			if (!mesh.getVertices().empty())
-			{
-				this->meshes.emplace_back(std::move(mesh));
-				mesh = Mesh();
-			}
-		}
-        else if (lineType == "v")
-        {
-            glm::vec3   position;
-            lineStream >> position.x >> position.y >> position.z;
-            positions.push_back(position);
-        }
-        else if (lineType == "vt")
-        {
-            glm::vec2   texCoord;
-            lineStream >> texCoord.x >> texCoord.y;
-            texCoords.push_back(texCoord);
-        }
-        else if (lineType == "vn")
-        {
-            glm::vec3   normal;
-            lineStream >> normal.x >> normal.y >> normal.z;
-            normals.push_back(normal);
-        }
-        else if (lineType == "f")
-        {
-            std::vector<Vertex> faceVertices;
-            std::string         vertexSpec;
-        
-            while (lineStream >> vertexSpec)
-            {
-                std::istringstream                  vertexStream(vertexSpec);
-                std::vector<glm::vec3>::size_type   posIndex;
-                std::vector<glm::vec2>::size_type   texIndex = 0;
-                std::vector<glm::vec3>::size_type   normIndex = 0;
-                
-                char slash;
-                vertexStream >> posIndex >> std::noskipws >> slash;
-                
-                if (vertexStream.peek() != '/') {
-                    vertexStream >> texIndex;
-                }
-                vertexStream >> slash;
-                if (vertexStream.peek() != '/') {
-                    vertexStream >> normIndex;
-                }
+        if (lineType == "o")
+            this->handleOLine(lineStream);
+    }
+}
 
-                Vertex  vertex;
-
-                if (posIndex > 0 && posIndex <= positions.size())
-                    vertex.position = positions[posIndex - 1];
-                if (texIndex > 0 && texIndex <= texCoords.size())
-                    vertex.texcoord = texCoords[texIndex - 1];
-                if (normIndex > 0 && normIndex <= normals.size())
-                    vertex.normal = normals[normIndex - 1];
-                
-                faceVertices.push_back(vertex);
-            }
-            for (size_t i = 1; i + 1 < faceVertices.size(); ++i) {
-                this->vertices.push_back(faceVertices[0]);
-                this->vertices.push_back(faceVertices[i]);
-                this->vertices.push_back(faceVertices[i + 1]);
-            }
-        }
+void Model::handleOLine(std::istringstream &stream)
+{
+    std::string name;
+    
+    if (stream >> name)
+    {
+        std::cout << name << std::endl;
     }
 }

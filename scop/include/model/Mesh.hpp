@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:04:29 by mthiry            #+#    #+#             */
-/*   Updated: 2024/02/12 19:55:32 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/03/11 15:45:54 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ struct Mesh {
      *
      * This method appends the specified vertex to the end of the vertices vector.
      */
-    inline void					addVertex(const Vertex& vertex) noexcept { this->vertices.emplace_back(vertex); }
+    inline void                    addVertex(const Vertex& vertex) noexcept { this->vertices.emplace_back(vertex); }
 
 	/**
      * @brief Adds an index to the mesh.
@@ -56,9 +56,9 @@ struct Mesh {
      * This method appends the specified index to the end of the indices vector.
      * Indices are used to define the rendering order of the triangles formed by the vertices.
      */
-    inline void					addIndex(unsigned int index) noexcept { this->indices.push_back(index); }
+     inline void                   addIndex(unsigned int index) noexcept { this->indices.push_back(index); }
 
-    std::string					name;
-    std::vector<Vertex>			vertices;
-	std::vector<unsigned int>	indices;
+     std::string                   name;
+     std::vector<Vertex>           vertices;
+     std::vector<unsigned int>     indices;
 };

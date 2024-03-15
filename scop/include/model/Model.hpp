@@ -6,7 +6,7 @@
 /*   By: mthiry <mthiry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:13:15 by mthiry            #+#    #+#             */
-/*   Updated: 2024/02/12 19:54:44 by mthiry           ###   ########.fr       */
+/*   Updated: 2024/03/11 18:25:06 by mthiry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ class Model
         std::vector<Mesh>           meshes;
 
         void                        parseOBJ(std::ifstream& file);
+        void                        handleOLine(std::istringstream &stream);
 };
